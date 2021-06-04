@@ -26,5 +26,5 @@ pixel@pixel-machine:~/go/Goland/Lesson01$
 ```
 
 
-![alt text](screenshots/vsc.png)
+![alt text](vsc.png)
 
