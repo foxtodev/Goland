@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("Make the zero value useful.")
-	fmt.Println("Blablabal")
+	fmt.Println("Hello world")
 }
