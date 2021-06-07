@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
+	"./rectangle"
 )
 
 func main() {
-	fmt.Println("Hello world")
+	rectangle.Area()
 }
