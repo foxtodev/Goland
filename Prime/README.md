@@ -33,4 +33,20 @@ BenchmarkPrimeBruteForce-2       1202352               987.3 ns/op             8
 PASS
 ok      command-line-arguments  5.400s
 ```
-## Naive brute force method win))) again)
+
+### number = 100000
+
+```
+go test -bench . -benchmem  prime_test.go
+```
+
+```
+goos: linux
+goarch: amd64
+cpu: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
+BenchmarkPrime-2                      34          34743858 ns/op          386296 B/op         20 allocs/op
+BenchmarkPrimeSieve-2               3525            354702 ns/op          492792 B/op         21 allocs/op
+BenchmarkPrimeBruteForce-2         12711             96061 ns/op               8 B/op          1 allocs/op
+PASS
+ok      command-line-arguments  5.571s
+```
