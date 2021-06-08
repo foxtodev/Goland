@@ -28,20 +28,12 @@ func Prime(num uint) []uint {
 	return nums
 }
 
-func PrimeBruteForce(num uint) []uint {
-	var nums []uint
-	var n uint
-	for i := uint(2); i <= num; i++ {
-		for n = 2; n <= i; i++ {
-			if i%n == 0 {
-				break
-			}
-		}
-		if n == i {
-			nums = append(nums, i)
-		}
+func BenchmarkPrime(b *testing.B) {
+	var number uint = 1000
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		Prime(number)
 	}
-	return nums
 }
 
 func PrimeSieve(num uint) []uint {
@@ -62,27 +54,32 @@ func PrimeSieve(num uint) []uint {
 	return nums
 }
 
-func BenchmarkPrime(b *testing.B) {
-	var number uint = 50
-
+func BenchmarkPrimeSieve(b *testing.B) {
+	var number uint = 1000
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
-		Prime(number)
+		PrimeSieve(number)
 	}
 }
 
-func BenchmarkPrimeSieve(b *testing.B) {
-	var number uint = 50
-
-	b.ResetTimer()
-	for n := 0; n < b.N; n++ {
-		PrimeBruteForce(number)
+func PrimeBruteForce(num uint) []uint {
+	var nums []uint
+	var n uint
+	for i := uint(2); i <= num; i++ {
+		for n = 2; n <= i; i++ {
+			if i%n == 0 {
+				break
+			}
+		}
+		if n == i {
+			nums = append(nums, i)
+		}
 	}
+	return nums
 }
 
 func BenchmarkPrimeBruteForce(b *testing.B) {
-	var number uint = 50
-
+	var number uint = 1000
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		PrimeBruteForce(number)
