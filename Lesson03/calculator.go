@@ -15,8 +15,8 @@ func main() {
 
 	fmt.Print("Enter first operand: ")
 	for {
-		if _, err := fmt.Scanln(&a); err != nil {
-			fmt.Print("Incorrect input Repeat enter: ")
+		if _, err := fmt.Scan(&a); err != nil {
+			fmt.Print("Incorrect input. Repeat enter: ")
 		} else {
 			break
 		}
@@ -24,8 +24,8 @@ func main() {
 
 	fmt.Print("Enter second operand: ")
 	for {
-		if _, err := fmt.Scanln(&b); err != nil {
-			fmt.Print("Incorrect input Repeat enter: ")
+		if _, err := fmt.Scan(&b); err != nil {
+			fmt.Print("Incorrect input. Repeat enter: ")
 		} else {
 			break
 		}
