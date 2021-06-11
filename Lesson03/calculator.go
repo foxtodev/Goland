@@ -31,7 +31,7 @@ func main() {
 		}
 	}
 
-	fmt.Print("Enter operation" + operations + ": ")
+	fmt.Print("Enter operation (" + operations + "): ")
 	for {
 		if _, err := fmt.Scanln(&operation); err != nil {
 			fmt.Print("Error. Repeat enter: ")
@@ -53,8 +53,11 @@ func main() {
 		r = a / b
 	case "%":
 		r = float64(int(a) % int(b))
-	//case "^":
-	//	r = a / b
+	case "^":
+		r = 1
+		for i := 1; i <= int(b); i++ {
+			r = r * a
+		}
 	default:
 		fmt.Println("Err")
 	}
