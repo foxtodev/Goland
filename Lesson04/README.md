@@ -1,4 +1,4 @@
-###Insert sorting algorithm
+#### Insert sorting algorithm
 
 ```go
 func SortInsertion(data []int) []int {
@@ -16,8 +16,9 @@ data := []int{7, 5, 2, 1, 4, 3, 8, 9, 0, 6}
 fmt.Println(SortInsertion(data))
 // [0 1 2 3 4 5 6 7 8 9]
 ```
+<br />
 
-###Insert sorting algorithm with direction
+#### Insert sorting algorithm with direction
 
 ```go
 func SortInsertionDir(data []int, direction ...int) []int {
@@ -43,3 +44,4 @@ data2 := []int{7, 5, 2, 1, 4, 3, 8, 9, 0, 6}
 fmt.Println(SortInsertionDir(data2, 1))
 // [9 8 7 6 5 4 3 2 1 0]
 ```
+<br />
