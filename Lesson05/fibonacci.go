@@ -48,22 +48,6 @@ func FibonacciMap(number int) int {
 	return fmap[number]
 }
 
-// func FibonacciMapV2(number int) int {
-// 	fib := map[int]int{
-// 		1: 0,
-// 		2: 1,
-// 	}
-// 	return FibonacciMapV2Rec(number, fib)
-// }
-
-// func FibonacciMapV2Rec(number int, fcache map[int]int) int {
-// 	if _, value := fcache[number]; value {
-// 		return value
-// 	}
-// 	fcache[number] = FibonacciMapV2Rec(number-1, fcache) + FibonacciMapV2Rec(number-2, fcache)
-// 	return fcache[number]
-// }
-
 func FibonacciMapFunc() func() int {
 	fib := make(map[int]int)
 	number := 0
