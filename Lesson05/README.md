@@ -13,6 +13,27 @@ func FibonacciRecursion(number int) int {
 #### Calculating the fibonacci number by recursion with map
 
 ```go
+func FibonacciMapV2(number int) int {
+	fib := map[int]int{
+		1: 0,
+		2: 1,
+	}
+	return FibonacciMapV2Rec(number, fib)
+}
+
+func FibonacciMapV2Rec(number int, fcache map[int]int) int {
+	if number < 2 {
+		return number
+	}
+	fcache[number] = FibonacciMapV2Rec(number-1, fcache) + FibonacciMapV2Rec(number-2, fcache)
+	return fcache[number]
+}
+```
+<br />
+
+#### Calculating the fibonacci number by recursion with map ver2
+
+```go
 func FibonacciMapFunc() func() int {
 	fib := make(map[int]int)
 	number := 0
@@ -27,5 +48,4 @@ func FibonacciMapFunc() func() int {
 	}
 }
 ```
-
 <br />

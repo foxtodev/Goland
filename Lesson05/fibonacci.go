@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+//
 func FibonacciCycle(number int) int {
 	fib1, fib2 := 0, 1
 	for ; number > 0; number-- {
@@ -12,6 +13,7 @@ func FibonacciCycle(number int) int {
 	return fib1
 }
 
+//
 func FibonacciRecursion(number int) int {
 	if number < 2 {
 		return number
@@ -19,6 +21,7 @@ func FibonacciRecursion(number int) int {
 	return FibonacciRecursion(number-1) + FibonacciRecursion(number-2)
 }
 
+//
 func FibonacciSlice(number int) int {
 	if number < 2 {
 		return number
@@ -31,6 +34,7 @@ func FibonacciSlice(number int) int {
 	return fib[1]
 }
 
+//
 func FibonacciFunc() func() int {
 	fib1, fib2 := 1, 0
 	return func() int {
@@ -39,6 +43,7 @@ func FibonacciFunc() func() int {
 	}
 }
 
+//
 func FibonacciMap(number int) int {
 	fmap := make(map[int]int)
 	fmap[0], fmap[1] = 0, 1
@@ -48,6 +53,24 @@ func FibonacciMap(number int) int {
 	return fmap[number]
 }
 
+//
+func FibonacciMapV2(number int) int {
+	fib := map[int]int{
+		1: 0,
+		2: 1,
+	}
+	return FibonacciMapV2Rec(number, fib)
+}
+
+func FibonacciMapV2Rec(number int, fcache map[int]int) int {
+	if number < 2 {
+		return number
+	}
+	fcache[number] = FibonacciMapV2Rec(number-1, fcache) + FibonacciMapV2Rec(number-2, fcache)
+	return fcache[number]
+}
+
+//
 func FibonacciMapFunc() func() int {
 	fib := make(map[int]int)
 	number := 0
@@ -69,11 +92,17 @@ func main() {
 	fmt.Print("Enter number: ")
 	fmt.Scanln(&number)
 
-	f := FibonacciMapFunc()
 	for i := 0; i <= number; i++ {
-		fmt.Print(f())
+		fmt.Print(FibonacciMapV2(i))
 		fmt.Print(" ")
 	}
 	fmt.Println(" ")
+
+	// f := FibonacciMapFunc()
+	// for i := 0; i <= number; i++ {
+	// 	fmt.Print(f())
+	// 	fmt.Print(" ")
+	// }
+	// fmt.Println(" ")
 
 }
