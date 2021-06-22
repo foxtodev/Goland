@@ -56,18 +56,19 @@ func FibonacciMap(number int) int {
 //
 func FibonacciMapV2(number int) int {
 	fib := map[int]int{
-		1: 0,
-		2: 1,
+		0: 0,
+		1: 1,
 	}
 	return FibonacciMapV2Rec(number, fib)
 }
 
-func FibonacciMapV2Rec(number int, fcache map[int]int) int {
-	if number < 2 {
-		return number
+func FibonacciMapV2Rec(number int, fibc map[int]int) int {
+	val, exists := fibc[number]
+	if exists == true {
+		return val
 	}
-	fcache[number] = FibonacciMapV2Rec(number-1, fcache) + FibonacciMapV2Rec(number-2, fcache)
-	return fcache[number]
+	fibc[number] = FibonacciMapV2Rec(number-1, fibc) + FibonacciMapV2Rec(number-2, fibc)
+	return fibc[number]
 }
 
 //
