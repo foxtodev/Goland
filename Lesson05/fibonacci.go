@@ -74,15 +74,15 @@ func FibonacciMapV2Rec(number int, fibc map[int]int) int {
 //
 func FibonacciMapFunc() func() int {
 	fib := make(map[int]int)
-	number := 0
+	fib[0], fib[1] = 0, 1
+	number := -1
 	return func() int {
-		fib[0], fib[1] = 0, 1
 		number++
-		if number < 2 {
-			return fib[0]
+		if val, exists := fib[number]; exists == true {
+			return val
 		}
-		fib[number-1] = fib[number-2] + fib[number-3]
-		return fib[number-1]
+		fib[number] = fib[number-1] + fib[number-2]
+		return fib[number]
 	}
 }
 
@@ -99,11 +99,11 @@ func main() {
 	}
 	fmt.Println(" ")
 
-	// f := FibonacciMapFunc()
-	// for i := 0; i <= number; i++ {
-	// 	fmt.Print(f())
-	// 	fmt.Print(" ")
-	// }
-	// fmt.Println(" ")
+	f := FibonacciMapFunc()
+	for i := 0; i <= number; i++ {
+		fmt.Print(f())
+		fmt.Print(" ")
+	}
+	fmt.Println(" ")
 
 }
