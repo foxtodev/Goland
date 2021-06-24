@@ -1,53 +1,22 @@
 <br />
-#### Calculating the fibonacci number by recursion
+##### Проанализируйте задания предыдущих уроков
+###### В каких случаях необходима была явная передача указателя в качестве входных параметров и возвращаемых результатов или в качестве приёмника в методах?
 
-```go
-func FibonacciRecursion(number int) int {
-	if number < 2 {
-		return number
-	}
-	return FibonacciRecursion(number-1) + FibonacciRecursion(number-2)
-}
-```
+``
+В тех случаях когда нужно дать функции возможность изменения данных в исходной переменной. Функции сортировки можно было выполнить с указателем, чтобы отсортировать исходный массив.
+``
+###### В каких случаях мы фактически имеем дело с указателями при передаче параметров, хотя явно их не указываем?
+
+``
+Карты и срезы неявно используют указатели.
+Карты по факту являются указателями.
+Срезы для указания на элемент массива используют указатели. Внутренне срез представлен как структура с тремя элементами: указатель на массив, вместимость среза и его длина.
+``
 <br />
 
-#### Calculating the fibonacci number by recursion with map
+##### Для арифметического умножения и разыменования указателей в Go используется один и тот же символ — оператор (*). Как вы думаете, как компилятор Go понимает, в каких случаях в выражении имеется в виду умножение, а в каких — разыменование указателя?
 
-```go
-func FibonacciMapV2(number int) int {
-	fib := map[int]int{
-		0: 0,
-		1: 1,
-	}
-	return FibonacciMapV2Rec(number, fib)
-}
-
-func FibonacciMapV2Rec(number int, fibc map[int]int) int {
-	val, exists := fibc[number]
-	if exists == true {
-		return val
-	}
-	fibc[number] = FibonacciMapV2Rec(number-1, fibc) + FibonacciMapV2Rec(number-2, fibc)
-	return fibc[number]
-}
-```
-<br />
-
-#### Calculating the fibonacci number by recursion with map ver2
-
-```go
-func FibonacciMapFunc() func() int {
-	fib := make(map[int]int)
-	fib[0], fib[1] = 0, 1
-	number := -1
-	return func() int {
-		number++
-		if val, exists := fib[number]; exists == true {
-			return val
-		}
-		fib[number] = fib[number-1] + fib[number-2]
-		return fib[number]
-	}
-}
-```
+``
+Умножение - оператор для которого необходимы два значения, а для оператора разыменования '*' используется в роли префикса для единственной переменной.
+``
 <br />
