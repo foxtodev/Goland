@@ -23,6 +23,9 @@ func ReadConfig() conf {
 ```go
 func IsUrl(str string) error {
 	_, err := url.ParseRequestURI(str)
+	if err == nil {
+		err = errors.New("Passed")
+	}
 	return err
 }
 ```
