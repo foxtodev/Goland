@@ -1,7 +1,0 @@
-{
-    "name": "John",
-    "age": 25,
-    "isAdmin": false,
-    "isEditor": true,
-    "personalPage": "http://john.com.ru:8081"
-}
